@@ -1,26 +1,40 @@
 <template>
-  <div class="header">
-    <div class="mainHeader">
-     Content goes here
+  <div class="main">
+    <div class="jumboTron">
+      <!-- qui va il jumbo -->
+    </div>
+    <div class="comicsSection">
+      <div class="currentSeries">
+        CURRENT SERIES
+      </div>
+      <div class="comicsBox">
+        <Comics
+        v-for="(element, index) in comicsList "
+        :key ="index"
+        :comicObject="element"/>  
+      </div>
+      <button>LOAD MORE</button>
+
+
     </div>
     <div class="section">
-      <div class="comic">
+      <div class="merc">
         <img src="../assets/img/buy-comics-digital-comics.png" alt="">
         <p> DIGITAL COMICS </p>
       </div>
-      <div class="comic">
+      <div class="merc">
         <img src="../assets/img/buy-comics-merchandise.png" alt="">
         <p>DC MERCHANDISE</p>
       </div>
-      <div class="comic">
+      <div class="merc">
         <img src="../assets/img/buy-comics-subscriptions.png" alt="">
         <p>SUBSCRIPTION</p>
       </div>
-      <div class="comic">
+      <div class="merc">
         <img src="../assets/img/buy-comics-shop-locator.png" alt="">
         <p>COMIC SHOP LOCATOR</p>
       </div>
-      <div class="comic">
+      <div class="merc">
         <img src="../assets/img/buy-dc-power-visa.svg" alt="">
         <p>DC POWER VISA</p>
       </div>
@@ -29,8 +43,20 @@
 </template>
 
 <script>
+import comicsList from '../data/comicsData'
+import Comics from './Comics.vue'
+
+
 export default {
   name: 'Main',
+  components: {
+    Comics,
+    },
+    data(){
+      return{
+        comicsInfo : comicsList,
+      }
+    }
 }
 </script>
 
@@ -39,12 +65,31 @@ export default {
 .header{
   position: relative;
 }
-.mainHeader{
-width: 100%;
-height: 120px;
-background-color: rgba(0, 0, 0, 0.87);
-color: white;
-text-align: center;
+.jumboTron{
+  height: 400px;
+  background-image: url(../assets/img/jumbotron.jpg);
+  background-size: cover; 
+  overflow: hidden;
+}
+.comicsSection{
+  width:100%;
+  height: 500px;
+  background-color: rgba(0, 0, 0, 0.877);
+  padding: 0 200px;
+}
+.currentSeries{
+  width: 150px;
+  padding: 7px;
+  text-align: center;
+  background-color: blue;
+  position: relative;
+  bottom: 20px;
+  color: white;
+}
+.comicsBox{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap ;
 }
 .section{
   width: 100%;
@@ -56,13 +101,13 @@ text-align: center;
   justify-content: center;
 
 }
-.comic{
+.merc{
   width: 250px;
   display: flex;
   justify-content: center;
   align-self: center;
 }
-.comic img{
+.merc img{
   width: 70px;
   height: 80px;
 }
