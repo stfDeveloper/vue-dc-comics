@@ -1,11 +1,9 @@
 <template>
-  <div class="comicsBox">
-      <div class="comicImage">
-          <img :src="comicObject.thumb" alt="">
-      </div>
-      <p>
-          {{comicObject.series}}    
-      </p>
+  <div class="comic">
+    <img :src="comicObject.thumb" alt="">
+    <p>
+        {{comicObject.series}}    
+    </p>
   </div>
 </template>
 
@@ -15,19 +13,19 @@ export default {
     props:{
         comicObject: Object,
     },
+    
 }
 </script>
 
 <style lang="scss">
-.comicsBox{
-    .comicImage{
-        width: 100px;
-        height: 100px;
-        overflow: hidden;
-        img{
-            width: 100%;
-        }
-
+.comic{
+    width: 150px;
+    height: 200px;
+    img{
+        width: 150px;
+    }
+    p{
+        text-align: center;
     }
 }
 

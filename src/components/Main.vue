@@ -8,10 +8,10 @@
         CURRENT SERIES
       </div>
       <div class="comicsBox">
-        <Comics
-        v-for="(element, index) in comicsList "
+        <Comics 
+        v-for="(element, index) in comicsInfo "
         :key ="index"
-        :comicObject="element"/>  
+        :comic-object="element"/>  
       </div>
       <button>LOAD MORE</button>
 
@@ -72,24 +72,28 @@ export default {
   overflow: hidden;
 }
 .comicsSection{
-  width:100%;
-  height: 500px;
-  background-color: rgba(0, 0, 0, 0.877);
-  padding: 0 200px;
-}
-.currentSeries{
-  width: 150px;
-  padding: 7px;
-  text-align: center;
-  background-color: blue;
-  position: relative;
-  bottom: 20px;
-  color: white;
+  width: 100%;
+  height: 700px;
+  background-color: rgba(0, 0, 0, 0.829);
+
 }
 .comicsBox{
+  width: 80%;
+  height: 100%;
   display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap ;
+  margin: auto;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.currentSeries{
+  position: relative;
+  bottom: 20px;
+  left: 200px;
+  background-color: rgba(0, 0, 255, 0.89);
+  width: 220px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 7px;
 }
 .section{
   width: 100%;
